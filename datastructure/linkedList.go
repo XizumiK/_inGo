@@ -75,6 +75,20 @@ func (pointerToHead *NodeHead) Insert(data int, position int) {
 	pointerToHead.Nums++ // length + 1
 }
 
+func (pointerToHead *NodeHead) Update(data int, position int) {
+	if position > pointerToHead.Nums || position < 0 { // if the position is out of range
+		err := errors.New("position is not exist in the linked list")
+		log.Println(err.Error())
+		return
+	}
+
+	theNode := pointerToHead.Next
+	for i := 1; i <= position; i++ {
+		theNode = theNode.Next
+	}
+	theNode.Data = data
+}
+
 // DeleteAtBeginning
 // delete the node at the linked-list beginning
 func (pointerToHead *NodeHead) DeleteAtBeginning() {

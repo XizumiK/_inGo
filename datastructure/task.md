@@ -2,8 +2,10 @@
 ## Linked-List
 ### Basic
 - [X] Insert
+- [X] Update
 - [X] Delete
 - [X] Print
+- [ ] Search
 ### Reverse
 ## Stack
 ### Basic

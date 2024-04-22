@@ -14,25 +14,41 @@ func main() {
 
 	(&head).InsertAtBeginning(0)
 	fmt.Println("InsertAtBeginning(0)")
+	head.Print()
+	fmt.Println("")
 
 	head.InsertAtBeginning(1) // You can use <head> to replace <(&head)>
 	fmt.Println("InsertAtBeginning(1)")
+	head.Print()
+	fmt.Println("")
 
 	head.InsertAtBeginning(2)
 	fmt.Println("InsertAtBeginning(2)")
+	head.Print()
+	fmt.Println("")
 
 	head.Insert(9, 1)
 	fmt.Println("Insert(9, 1)")
+	head.Print()
+	fmt.Println("")
 
 	head.InsertAtEnd(8)
 	fmt.Println("InsertAtEnd(8)")
+	head.Print()
+	fmt.Println("")
 
+	head.Update(0, 1)
+	fmt.Println("Update(1)")
+	head.Print()
+	fmt.Println("")
+
+	head.DeleteAtBeginning()
+	fmt.Println("DeleteAtBeginning()")
 	head.Print()
 	fmt.Println("")
 
 	head.Delete(1)
 	fmt.Println("Delete(1)")
-
 	head.Print()
 	fmt.Println("")
 
