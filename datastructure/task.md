@@ -5,7 +5,7 @@
 - [X] Update
 - [X] Delete
 - [X] Print
-- [ ] Search
+- [X] Search
 ### Reverse
 ## Stack
 ### Basic
