@@ -75,31 +75,35 @@ func (pointerToHead *NodeHead) Insert(data int, position int) {
 	pointerToHead.Nums++ // length + 1
 }
 
+// DeleteAtBeginning
+// delete the node at the linked-list beginning
 func (pointerToHead *NodeHead) DeleteAtBeginning() {
 	firstNode := pointerToHead.Next
 	pointerToHead.Next = firstNode.Next
 	pointerToHead.Nums--
 }
 
+// Delete
+// delete data at the position, 0 - First; 1 - 2nd etc
 func (pointerToHead *NodeHead) Delete(position int) {
 	if position > pointerToHead.Nums || position < 0 { // if the position is out of range
 		err := errors.New("position is not exist in the linked list")
 		log.Println(err.Error())
 		return
-	} else if position == 0 {
-		pointerToHead.DeleteAtBeginning()
+	} else if position == 0 { // if the delete position is 0
+		pointerToHead.DeleteAtBeginning() // use DeleteAtBeginning to delete the node
 		return
 	}
 	// find the delete position of the linked list
-	theNode := pointerToHead.Next
+	theNode := pointerToHead.Next // get the first node
 	for i := 1; i < position; i++ {
-		theNode = theNode.Next
+		theNode = theNode.Next // get the target node
 	}
-	theNextNode := theNode.Next
+	theNextNode := theNode.Next // get the next node behind the position
 	// delete the node by change the pointer
 	theNode.Next = theNextNode.Next
 	// don't worry about the memory used by the node, golang will release it automatically
-	pointerToHead.Nums-- // length + 1
+	pointerToHead.Nums-- // length - 1
 }
 
 // Print
