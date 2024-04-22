@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/XizumiK/_inGo/datastructure"
 )
 
 func main() {
-	var head datastructure.NodeHead // We create head which contains a pointer that points to a Node
+	var head datastructure.NodeHead // Create head which contains a pointer that points to a Node
 	(&head).InsertAtBeginning(0)
 	head.InsertAtBeginning(1) // You can use <head> to replace <(&head)>
 	head.InsertAtBeginning(2)
