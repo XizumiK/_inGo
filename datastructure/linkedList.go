@@ -129,5 +129,19 @@ func (pointerToHead *NodeHead) Print() {
 		temp = temp.Next
 	}
 	fmt.Print(" ")
-	fmt.Print(pointerToHead.Nums)
+	fmt.Println(pointerToHead.Nums)
+}
+
+func (pointerToHead *NodeHead) Search(data int) (int, bool) {
+	temp := pointerToHead.Next
+	i := 0
+	for temp != nil {
+		if temp.Data != data {
+			temp = temp.Next
+			i++
+		} else {
+			return i, true
+		}
+	}
+	return -1, false
 }
