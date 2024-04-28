@@ -1,4 +1,4 @@
-package datastructure
+package linkedList
 
 func (pointerToHead *NodeHead) Resverse() {
 	if pointerToHead.Head == nil || pointerToHead.Head.Next == nil {

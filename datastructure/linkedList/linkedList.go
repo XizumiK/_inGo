@@ -1,4 +1,4 @@
-package datastructure
+package linkedList
 
 import (
 	"errors"

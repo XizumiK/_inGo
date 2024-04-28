@@ -3,13 +3,14 @@ package main
 import (
 	"fmt"
 
-	"github.com/XizumiK/_inGo/datastructure"
+	"github.com/XizumiK/_inGo/datastructure/linkedList"
+	"github.com/XizumiK/_inGo/datastructure/stack"
 )
 
 func main() {
 	// Basic linked-list
 	fmt.Println("<----------Linked-list---------->")
-	var head datastructure.NodeHead // Create head which contains a pointer that points to a Node
+	var head linkedList.NodeHead // Create head which contains a pointer that points to a Node
 	fmt.Println("Linked-list init")
 
 	(&head).InsertAtBeginning(0)
@@ -48,15 +49,28 @@ func main() {
 	resP, res := head.Search(9)
 	fmt.Println(resP, res)
 
+	fmt.Println("<----------Linked-list---------->")
+
+	// Reverse linked-list
+	fmt.Println("<------Reverse Linked-list------>")
+
 	head.Resverse()
 	head.Print()
 
 	head.ReverseRecursive()
 	head.Print()
 
-	fmt.Println("<----------Linked-list---------->")
+	fmt.Println("<------Reverse Linked-list------>")
 
-	// Reverse linked-list
-	fmt.Println("<------Reverse Linked-list------>")
-	fmt.Println("<------Reverse Linked-list------>")
+	var stack stack.Stack
+	fmt.Println(stack.IsEmpty())
+	stack.Push(1)
+	stack.Push(2)
+	stack.Push(3)
+	var i int
+	i = stack.Pop()
+	fmt.Println(i)
+	i = stack.Peek()
+	fmt.Println(i)
+	fmt.Println(stack.IsEmpty())
 }
