@@ -1,6 +1,10 @@
 package datastructure
 
 func (pointerToHead *NodeHead) Resverse() {
+	if pointerToHead.Head == nil || pointerToHead.Head.Next == nil {
+		return
+	}
+
 	var prev *Node = nil
 	curr := pointerToHead.Head
 
@@ -18,14 +22,16 @@ func (pointerToHead *NodeHead) ReverseRecursive() {
 	if pointerToHead.Head == nil || pointerToHead.Head.Next == nil {
 		return
 	}
-	pointerToHead.Head = reverseList(pointerToHead.Head)
+
+	pointerToHead.Head = reverseNode(pointerToHead.Head)
 }
 
-func reverseList(head *Node) *Node {
+func reverseNode(head *Node) *Node {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	newHead := reverseList(head.Next)
+
+	newHead := reverseNode(head.Next)
 	head.Next.Next = head
 	head.Next = nil
 	return newHead
