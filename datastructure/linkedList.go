@@ -16,7 +16,7 @@ type Node struct {
 // NodeHead
 // the head of linked list, it doesn't contain data
 type NodeHead struct {
-	Next *Node // point to the first node
+	Head *Node // point to the first node
 	Nums int   // the length of this linked list
 }
 
@@ -27,8 +27,8 @@ func (pointerToHead *NodeHead) InsertAtBeginning(data int) {
 		Data: data,
 	}
 	// insert newNode by exchanging the pointer
-	(*newNode).Next = (*pointerToHead).Next
-	(*pointerToHead).Next = newNode
+	(*newNode).Next = (*pointerToHead).Head
+	(*pointerToHead).Head = newNode
 	pointerToHead.Nums++ // length + 1
 }
 
@@ -39,7 +39,7 @@ func (pointerToHead *NodeHead) InsertAtEnd(data int) {
 		Data: data,
 	}
 	// find the end of the linked list
-	endNode := pointerToHead.Next
+	endNode := pointerToHead.Head
 	for i := 1; i < pointerToHead.Nums; i++ {
 		endNode = endNode.Next
 	}
@@ -65,7 +65,7 @@ func (pointerToHead *NodeHead) Insert(data int, position int) {
 		Data: data,
 	}
 	// find the insert position of the linked list
-	theNode := pointerToHead.Next
+	theNode := pointerToHead.Head
 	for i := 1; i < position; i++ {
 		theNode = theNode.Next
 	}
@@ -82,7 +82,7 @@ func (pointerToHead *NodeHead) Update(data int, position int) {
 		return
 	}
 
-	theNode := pointerToHead.Next
+	theNode := pointerToHead.Head
 	for i := 1; i <= position; i++ {
 		theNode = theNode.Next
 	}
@@ -92,8 +92,8 @@ func (pointerToHead *NodeHead) Update(data int, position int) {
 // DeleteAtBeginning
 // delete the node at the linked-list beginning
 func (pointerToHead *NodeHead) DeleteAtBeginning() {
-	firstNode := pointerToHead.Next
-	pointerToHead.Next = firstNode.Next
+	firstNode := pointerToHead.Head
+	pointerToHead.Head = firstNode.Next
 	pointerToHead.Nums--
 }
 
@@ -109,7 +109,7 @@ func (pointerToHead *NodeHead) Delete(position int) {
 		return
 	}
 	// find the delete position of the linked list
-	theNode := pointerToHead.Next // get the first node
+	theNode := pointerToHead.Head // get the first node
 	for i := 1; i < position; i++ {
 		theNode = theNode.Next // get the target node
 	}
@@ -123,7 +123,7 @@ func (pointerToHead *NodeHead) Delete(position int) {
 // Print
 // output all data and the length in the linked list
 func (pointerToHead *NodeHead) Print() {
-	temp := pointerToHead.Next
+	temp := pointerToHead.Head
 	for temp != nil {
 		fmt.Print(temp.Data)
 		temp = temp.Next
@@ -133,7 +133,7 @@ func (pointerToHead *NodeHead) Print() {
 }
 
 func (pointerToHead *NodeHead) Search(data int) (int, bool) {
-	temp := pointerToHead.Next
+	temp := pointerToHead.Head
 	i := 0
 	for temp != nil {
 		if temp.Data != data {

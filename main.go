@@ -48,6 +48,12 @@ func main() {
 	resP, res := head.Search(9)
 	fmt.Println(resP, res)
 
+	head.Resverse()
+	head.Print()
+
+	head.ReverseRecursive()
+	head.Print()
+
 	fmt.Println("<----------Linked-list---------->")
 
 	// Reverse linked-list
